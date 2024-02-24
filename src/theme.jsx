@@ -2,18 +2,19 @@ import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   typography: {
-    fontFamily: "Myanmar Sans Pro",
+    fontFamily: "Noto Sans Myanmar",
     fontWeightBold: "700",
   },
   palette: {
     // use for mui components like Button and input
     primary: {
-      main: "rgba(75, 155, 75, 0.82)",
-      light: "#00ADE6",
+      main: "#4B9B4BD1",
+      light: "#fff",
     },
     // use for typo color and line
     secondary: {
-      main: "#FFB127",
+      main: "#2A8347",
+      light: "#fff",
     },
   },
 });

@@ -10,21 +10,18 @@ const SingleInput = ({
   placeholder = "",
 }) => {
   return (
-    <Box sx={{ mt: {md:"2rem",xs: "1rem"} }}>
-      <Typography sx={{ color: "primary.light", fontWeight: "bold" }}>
-        {label}
-        <span style={{ color: "red" }}> *</span>
-      </Typography>
+    <Box sx={{ mt: { md: "3rem", xs: "1rem" } }}>
       <TextField
+        id="standard-input"
         placeholder={placeholder}
-        required
+        label={label}
         type={type}
         name={name}
         value={data}
         onChange={handleOnChange}
         fullWidth
         size="small"
-        sx={{ bgcolor: "#fff", borderRadius: "0.5rem", mt: "1rem" }}
+        sx={{ borderRadius: "0.5rem", mt:'1rem',}}
       />
     </Box>
   );

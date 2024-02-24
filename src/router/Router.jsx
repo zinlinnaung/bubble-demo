@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SurveyForm from "../containers/SurveyForm";
+import RegisterForm from "../containers/RegisterForm";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SurveyForm />} />
+        <Route path="/" element={<RegisterForm />} />
       </Routes>
     </BrowserRouter>
   );

@@ -9,28 +9,28 @@ import {
 import React from "react";
 import stateCities from "../utils/StateCities.json";
 
-const MultipleInput = ({ label, name1, name2, data, handleOnChange }) => {
+const MultipleInput = ({
+  label,
+  name1,
+  name2,
+  data,
+  handleOnChange,
+}) => {
   const states = Object.keys(stateCities);
   const cities =
     label === "မွေးရပ်"
       ? stateCities[data.born_state]
       : stateCities[data.living_state];
 
-      return (
-    <Box sx={{ mt: {md:"2rem",xs: "1rem"} }}>
-      <Typography
-        sx={{ color: "primary.light", fontWeight: "bold", mb: "1rem" }}
-      >
-        {label}
-        <span style={{ color: "red" }}> *</span>
-      </Typography>
-      <Box sx={{ display: "flex", columnGap: "1rem" }}>
-        <FormControl sx={{ overflow: "hidden", flex: 1 }}>
+  return (
+    <Box sx={{ mt: { md: "2rem", xs: "1.5rem" } }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        <FormControl sx={{ overflow: "hidden", flex: 4 }}>
           <InputLabel
             id="demo-simple-select-label"
-            sx={{ mt: "-0.5rem", bgcolor: "transparent", fontWeight: "bold" }}
+            sx={{ mt: "-0.5rem", bgcolor: "transparent" }}
           >
-            တိုင်းဒေသကြီး / ပြည်နယ်
+            တိုင်း/ဒေသကြီး
           </InputLabel>
           <Select
             required
@@ -39,7 +39,7 @@ const MultipleInput = ({ label, name1, name2, data, handleOnChange }) => {
             value={label === "မွေးရပ်" ? data.born_state : data.living_state}
             name={name1}
             size="small"
-            sx={{ bgcolor: "#fff", borderRadius: "0.5rem", mt: "rem" }}
+            sx={{ borderRadius: "0.5rem" }}
             onChange={handleOnChange}
           >
             {states.map((state, index) => (
@@ -49,22 +49,24 @@ const MultipleInput = ({ label, name1, name2, data, handleOnChange }) => {
             ))}
           </Select>
         </FormControl>
-        <FormControl sx={{ overflow: "hidden", flex: 1 }}>
+        <FormControl sx={{ overflow: "hidden", flex: 4 }}>
           <InputLabel
             id="demo-simple-select-label"
-            sx={{ mt: "-0.5rem", bgcolor: "transparent", fontWeight: "bold" }}
+            sx={{ mt: "-0.5rem", bgcolor: "transparent" }}
           >
-            မြို့နယ်
+            နေထိုင်ရာမြို့နယ်
           </InputLabel>
           <Select
             required
-            disabled={label === "မွေးရပ်" ? !data.born_state : !data.living_state}
+            disabled={
+              label === "မွေးရပ်" ? !data.born_state : !data.living_state
+            }
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={label === "မွေးရပ်" ? data.born_city : data.living_city}
             name={name2}
             size="small"
-            sx={{ bgcolor: "#fff", borderRadius: "0.5rem", mt: "rem" }}
+            sx={{ borderRadius: "0.5rem" }}
             onChange={handleOnChange}
           >
             {cities?.map((city, index) => (

@@ -22,6 +22,7 @@ import { withAlert } from "../recoil/snackbar";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import NrcInput from "../components/NrcInput";
+import { useNavigate } from "react-router-dom";
 const SubmitButton = styled(LoadingButton)(
   () => `
   &:hover {
@@ -39,6 +40,7 @@ const DialogButton = styled(LoadingButton)(
 );
 
 const RegisterForm = () => {
+  const nav = useNavigate()
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -47,6 +49,8 @@ const RegisterForm = () => {
 
   const handleClose = () => {
     setOpen(false);
+    nav("/code")
+    
   };
 
   const api = useAxios();

@@ -40,7 +40,7 @@ const DialogButton = styled(LoadingButton)(
 );
 
 const RegisterForm = () => {
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -49,8 +49,7 @@ const RegisterForm = () => {
 
   const handleClose = () => {
     setOpen(false);
-    nav("/code")
-    
+    nav("/code");
   };
 
   const api = useAxios();
@@ -153,7 +152,7 @@ const RegisterForm = () => {
               mx: "auto",
               width: {
                 md: "700px",
-                xs: "400px",
+                xs: "100%",
               },
             }}
           />
@@ -185,8 +184,9 @@ const RegisterForm = () => {
             ကားအသစ်ကြီးနဲ့လန်းနိုင်ဖို့ Bubble နဲ့အတူကံစမ်းစို့အစီအစဥ်ရဲ့
             ကားဆုကြီးကို ပိုင်ဆိုင်ဖို့ အခုပဲ ပါဝင်ကံစမ်းလိုက်ရအောင်!)
           </Typography>
+          {/* <TextField label="Name" /> */}
           <SingleInput
-            label="အမည်"
+            label="အမည် (မှတ်ပုံတင် ကိုင်ဆောင်ထားသော နာမည် )"
             name="name"
             data={data.name}
             handleOnChange={handleOnChange}
@@ -195,7 +195,7 @@ const RegisterForm = () => {
             label="ဖုန်းနံပါတ်"
             name="contact_phone"
             data={data.contact_phone}
-            placeholder="09"
+            placeholder="09 နှင့်စသောဖုန်းနံပါတ်"
             handleOnChange={handleOnChange}
           />
           <Box sx={{ color: "#FF0000CC", mt: "1rem" }}>
@@ -208,12 +208,6 @@ const RegisterForm = () => {
             data={data}
             handleOnChange={handleOnChange}
           />
-          <SingleInput
-            label="နံပါတ်"
-            name="nrc_number"
-            data={data.nrc_number}
-            handleOnChange={handleOnChange}
-          />
           <MultipleInput
             label=""
             name1="living_state"
@@ -222,39 +216,51 @@ const RegisterForm = () => {
             handleOnChange={handleOnChange}
           />
           <Box>
-            <input
+            {/* <input
               type="file"
               accept=".png,.jpeg"
               onChange={handleOnChange}
               style={{ display: "none" }}
               id="file-input"
-            />
+            /> */}
             <TextField
+              type="file"
               variant="outlined"
               fullWidth
+              size="small"
               label="ပုံတင်ရန်"
               sx={{ mt: "2rem" }}
-              InputProps={{
-                startAdornment: (
-                  <Button
-                    variant="contained"
-                    onClick={() =>
-                      document.getElementById("file-input").click()
-                    }
-                    sx={{
-                      color: "#000",
-                      bgcolor: "primary.light",
-                      width: "200px",
-                      borderRadius: "20px",
-                      m: "1rem 0.5rem 1rem 0",
-                    }}
-                  >
-                    Browse file
-                  </Button>
-                ),
+              InputLabelProps={{
+                style: {
+                  color: "white",
+                },
               }}
-              value={data.file ? data.file.name : "No file selected"}
-              disabled
+              // onClick={() =>
+              //         document.getElementById("file-input").click()
+              //       }
+              // InputProps={{
+              //   startAdornment: (
+              //     <Button
+              //       variant="contained"
+              //       onClick={() =>
+              //         document.getElementById("file-input").click()
+              //       }
+              //       sx={{
+              //         color: "#000",
+              //         bgcolor: "primary.light",
+              //         width: "200px",
+              //         borderRadius: "20px",
+              //         m: "1rem 0.5rem 1rem 0",
+              //       }}
+              //     >
+              //       Browse file
+              //     </Button>
+              //   ),
+              // }}
+              // value={data.file ? data.file.name : "No file chosen"}
+              value={data.file}
+              focused
+              // disabled
             />
             <SubmitButton
               onClick={handleClickOpen}
@@ -281,6 +287,9 @@ const RegisterForm = () => {
           open={open}
           aria-labelledby="customized-dialog-title"
           aria-describedby="customized-dialog-description"
+          // sx={{
+          //   overflow: ""
+          // }}
         >
           <Box
             sx={{
@@ -296,7 +305,7 @@ const RegisterForm = () => {
               sx={{
                 display: "block",
                 width: "130px",
-                m: "0.2rem 0 0 -0.5rem",
+                m: "-3rem 0 0 -0.5rem",
               }}
             />
             <Box
@@ -314,51 +323,48 @@ const RegisterForm = () => {
           </Box>
           <DialogTitle
             id="customized-dialog-title"
-            sx={{ fontWeight: "bold", m: "-2rem 0 0 2.8rem" }}
+            sx={{ fontWeight: "bold", m: "auto" }}
           >
             {"စည်းကမ်းချက်များ"}
           </DialogTitle>
-          <DialogContent sx={{ ml: "2rem" }}>
+          <DialogContent>
             <Box
               sx={{
                 width: "100%",
                 bgcolor: "background.paper",
               }}
             >
-              <nav>
-                <List>
-                  <ListItem>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      &#x2022; ဘူးပေါ်ကနာမည်နှင့် ဖောင်မှာဖြည့်ထားသော
-                      နာမည်တူညီရမည်။
-                    </Typography>
-                  </ListItem>
-                  <ListItem>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      &#x2022; ဖေ့ဘွတ်အကောင့်တစ်ခုကိုတစ်ကြိမ်သာ
-                      ကံစမ်းခွင့်ရှိသည်။
-                    </Typography>
-                  </ListItem>
-                  <ListItem>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      &#x2022; ပါဝင်ကံစမ်းမည့်ဘူးပုံသည်လည်းတစ်ပုံကို တစ်ကြိမ်သာ
-                      ကံစမ်းခွင့်ရှိသည်။
-                    </Typography>
-                  </ListItem>
-                  <ListItem>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      &#x2022; ပုံပေါ်ရှိဖုန်းနံပါတ်နှင့် အမည်တို့သည်
-                      ကြည်လင်ပြတ်သားရမည်။
-                    </Typography>
-                  </ListItem>
-                  <ListItem>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      &#x2022; ကံထူးရှင်သည်မိမိကံစမ်းထားသည့်ဘူးပုံနှင့်
-                      ကံစမ်းမဲကုတ်ဒ်ကို ပြသနိုင်ရမည်။
-                    </Typography>
-                  </ListItem>
-                </List>
-              </nav>
+              <List>
+                <ListItem sx={{ padding: "10px 0" }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                    &#x2022; ဘူးပေါ်ကနာမည်နှင့် ဖောင်မှာဖြည့်ထားသော
+                    နာမည်တူညီရမည်။
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ padding: "10px 0" }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                    &#x2022; ဖေ့ဘွတ်အကောင့်တစ်ခုကိုတစ်ကြိမ်သာ ကံစမ်းခွင့်ရှိသည်။
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ padding: "10px 0" }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                    &#x2022; ပါဝင်ကံစမ်းမည့်ဘူးပုံသည်လည်းတစ်ပုံကို တစ်ကြိမ်သာ
+                    ကံစမ်းခွင့်ရှိသည်။
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ padding: "10px 0" }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                    &#x2022; ပုံပေါ် ရှိအချက်အလက်များတို့သည်လည်း
+                    ကြည်လင်ပြတ်သားရမည်။
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ padding: "10px 0" }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                    &#x2022; ကံထူးရှင်သည်မိမိကံစမ်းထားသည့်ဘူးနှင့်
+                    ကံစမ်းမဲကုတ်ဒ်ကို ပြသနိုင်ရမည်။
+                  </Typography>
+                </ListItem>
+              </List>
             </Box>
           </DialogContent>
           <DialogActions>
@@ -368,7 +374,10 @@ const RegisterForm = () => {
               type="submit"
               sx={{
                 color: "#fff",
-                bgcolor: "#0F1CF3",
+                bgcolor: "secondary.main",
+                ":hover": {
+                  bgcolor: "primary.main",
+                },
                 borderRadius: "8px",
                 mx: "auto",
                 width: "450px",

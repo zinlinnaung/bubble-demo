@@ -9,13 +9,7 @@ import {
 import React from "react";
 import stateCities from "../utils/StateCities.json";
 
-const MultipleInput = ({
-  label,
-  name1,
-  name2,
-  data,
-  handleOnChange,
-}) => {
+const MultipleInput = ({ label, name1, name2, data, handleOnChange }) => {
   const states = Object.keys(stateCities);
   const cities =
     label === "မွေးရပ်"
@@ -24,11 +18,11 @@ const MultipleInput = ({
 
   return (
     <Box sx={{ mt: { md: "2rem", xs: "1.5rem" } }}>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <FormControl sx={{ overflow: "hidden", flex: 4 }}>
           <InputLabel
             id="demo-simple-select-label"
-            sx={{ mt: "-0.5rem", bgcolor: "transparent" }}
+            sx={{ mt: "-0.5rem", bgcolor: "transparent", color: "white" }}
           >
             တိုင်း/ဒေသကြီး
           </InputLabel>
@@ -52,7 +46,7 @@ const MultipleInput = ({
         <FormControl sx={{ overflow: "hidden", flex: 4 }}>
           <InputLabel
             id="demo-simple-select-label"
-            sx={{ mt: "-0.5rem", bgcolor: "transparent" }}
+            sx={{ mt: "-0.5rem", bgcolor: "transparent", color: "white" }}
           >
             နေထိုင်ရာမြို့နယ်
           </InputLabel>

@@ -6,13 +6,13 @@ const CodePage = () => {
     <Box
       sx={{
         position: "relative",
-        bgcolor: "#84DD63",
+        // bgcolor: "white",
         // height: "100vh",
       }}
     >
       <Box
         sx={{
-          bgcolor: "primary.main",
+          // bgcolor: "primary.main",
           fontWeight: "fontWeightBold",
           pb: "2rem",
           mx: "auto",
@@ -28,7 +28,7 @@ const CodePage = () => {
               mx: "auto",
               width: {
                 md: "700px",
-                xs: "400px",
+                xs: "100%",
               },
             }}
           />
@@ -51,7 +51,7 @@ const CodePage = () => {
                 xs: "-2rem",
               },
             }}
-            elevation={1}
+            elevation={3}
           >
             <Box
               component="img"
@@ -72,10 +72,14 @@ const CodePage = () => {
             <Typography sx={{ fontWeight: "bold", mt: "1.5rem" }}>
               သင်၏ကံစမ်းမဲကုဒ်နံပါတ်
             </Typography>
-            <Typography sx={{ fontWeight: "bold", mt: "1.1rem" }}>
+            <Typography
+              sx={{ fontWeight: "bold", mt: "1.1rem", fontSize: "2rem" }}
+            >
               000001
             </Typography>
-            <Typography sx={{ fontSize: "1.1rem", fontWeight: "bold" }}>
+            <Typography
+              sx={{ fontSize: "1.1rem", fontWeight: "bold", mt: "1.1rem" }}
+            >
               ပါဝင်ကံစမ်းမှုအတွက် ကျေးဇူးတင်ပါသည်။
             </Typography>
             <Typography
@@ -92,7 +96,10 @@ const CodePage = () => {
             <Button
               sx={{
                 color: "white",
-                bgcolor: "#0F1CF3",
+                bgcolor: "secondary.main",
+                ":hover": {
+                  bgcolor: "primary.main",
+                },
                 borderRadius: "0.5rem",
                 textTransform: "capitalize",
                 width: "150px",
@@ -125,16 +132,16 @@ const CodePage = () => {
           </Paper>
           <Typography
             sx={{
-              color: "#000",
+              color: "red",
               fontWeight: "bold",
               fontSize: "1.3rem",
               textAlign: "center",
               mt: "2rem",
             }}
           >
-            <span style={{ color: "red", fontWeight: "normal" }}> *</span>
+            <span style={{ fontWeight: "normal" }}> *</span>
             code နံပါတ်ကို သိမ်းထားဖို့လိုအပ်ပါတယ်
-            <span style={{ color: "red", fontWeight: "normal" }}> *</span>
+            <span style={{ fontWeight: "normal" }}> *</span>
           </Typography>
         </Box>
       </Box>

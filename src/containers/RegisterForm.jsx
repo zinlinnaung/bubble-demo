@@ -288,7 +288,7 @@ const RegisterForm = () => {
           aria-labelledby="customized-dialog-title"
           aria-describedby="customized-dialog-description"
           // sx={{
-          //   overflow: ""
+          //   overflow: "visible",
           // }}
         >
           <Box

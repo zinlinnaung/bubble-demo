@@ -35,6 +35,7 @@ const CodePage = () => {
           <Paper
             sx={{
               bgcolor: "primary.light",
+              textAlign: "center",
               p: "2rem",
               width: {
                 md: "600px",

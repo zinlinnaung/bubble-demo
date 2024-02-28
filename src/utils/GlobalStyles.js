@@ -19,6 +19,9 @@ const GlobalStyles = createGlobalStyle`
       color: white !important;
     }
     
+    .css-tlc64q-MuiPaper-root-MuiDialog-paper {
+      overflow: visible !important;
+    }
 `;
 
 export default GlobalStyles;

@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
       color: white !important;
     }
     
-    .css-tlc64q-MuiPaper-root-MuiDialog-paper {
+    .css-tlc64q-MuiPaper-root-MuiDialog-paper, .css-mbdu2s {
       overflow: visible !important;
     }
 `;

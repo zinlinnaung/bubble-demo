@@ -7,16 +7,24 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import stateCities from "../utils/StateCities.json";
 import SingleInput from "./SingleInput";
+import nrcConstants from "../constants/nrcConstants.json";
 
-const NrcInput = ({ label, nrc1, nrc2, nrc3, data, handleOnChange }) => {
-  const states = Object.keys(stateCities);
-  const cities =
-    label === "မွေးရပ်"
-      ? stateCities[data.born_state]
-      : stateCities[data.living_state];
+const NrcInput = () => {
+  const [data, setData] = useState({
+    stateCode: "၁/",
+    township: "ခဖန",
+    nrcStatus: "နိုင်",
+  });
+
+  const states = Object.keys(nrcConstants);
+  const townships = nrcConstants[data.stateCode];
+
+  const handleOnChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   return (
     <Box sx={{ mt: { md: "2rem", xs: "1.5rem" } }}>
@@ -33,15 +41,16 @@ const NrcInput = ({ label, nrc1, nrc2, nrc3, data, handleOnChange }) => {
               required
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={label === "မွေးရပ်" ? data.born_city : data.living_city}
-              name={nrc1}
+              value={data.stateCode}
+              name="stateCode"
               size="small"
-              // sx={{ borderRadius: "0.5rem", color: "white" }}
-              // onChange={handleOnChange}
+              onChange={handleOnChange}
             >
-              <MenuItem value={"Ten"}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {states.map((state, index) => (
+                <MenuItem key={index} value={state}>
+                  {state}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           <FormControl sx={{ overflow: "hidden", width: "100%" }}>
@@ -49,51 +58,49 @@ const NrcInput = ({ label, nrc1, nrc2, nrc3, data, handleOnChange }) => {
               id="demo-simple-select-label"
               sx={{ mt: "-0.5rem", bgcolor: "transparent", color: "white" }}
             >
-              အလန
+              ခဖန
             </InputLabel>
             <Select
               required
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={label === "မွေးရပ်" ? data.born_city : data.living_city}
-              name={nrc2}
+              value={data.township}
+              name="township"
               size="small"
-              // sx={{ borderRadius: "0.5rem", color: "white" }}
-              // onChange={handleOnChange}
+              onChange={handleOnChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {townships?.map((township, index) => (
+                <MenuItem key={index} value={township}>
+                  {township}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
-          {/* <FormControl sx={{ overflow: "hidden", width: "100%" }}>
+
+          <FormControl sx={{ overflow: "hidden", width: "100%" }}>
             <InputLabel
               id="demo-simple-select-label"
               sx={{ mt: "-0.5rem", bgcolor: "transparent", color: "white" }}
             >
-              (နိုင် )
+              (နိုင်)
             </InputLabel>
             <Select
               required
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={label === "မွေးရပ်" ? data.born_city : data.living_city}
-              name={nrc3}
+              value={data.nrcStatus}
+              name="nrcStatus"
               size="small"
-              // sx={{ borderRadius: "0.5rem" }}
-              // onChange={handleOnChange}
+              onChange={handleOnChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value="နိုင်">နိုင်</MenuItem>
+              <MenuItem value="ဧည့်">ဧည့်</MenuItem>
+              <MenuItem value="ပြု">ပြု</MenuItem>
             </Select>
-          </FormControl> */}
+          </FormControl>
 
-          <TextField
+          {/* <TextField
             id="standard-input"
-            // placeholder="Nrc Number"
-            // label={label}
-            // type={type}
             name="nrc_number"
             value="(နိုင်)"
             onChange={handleOnChange}
@@ -104,12 +111,11 @@ const NrcInput = ({ label, nrc1, nrc2, nrc3, data, handleOnChange }) => {
                 color: "white",
               },
             }}
-          />
+          /> */}
           <TextField
             id="standard-input"
             placeholder="မှတ်ပုံတင်နံပါတ်"
-            label={label}
-            // type={type}
+            type="text"
             name="nrc_number"
             // value={data}
             onChange={handleOnChange}

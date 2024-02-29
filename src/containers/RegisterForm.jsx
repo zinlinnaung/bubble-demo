@@ -192,6 +192,7 @@ const RegisterForm = () => {
             handleOnChange={handleOnChange}
           />
           <SingleInput
+            type="number"
             label="ဖုန်းနံပါတ်"
             name="contact_phone"
             data={data.contact_phone}

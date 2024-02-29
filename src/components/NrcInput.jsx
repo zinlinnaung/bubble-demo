@@ -17,6 +17,7 @@ const NrcInput = () => {
     stateCode: "၁/",
     township: "ခဖန",
     nrcStatus: "နိုင်",
+    nrcNumber: "",
   });
 
   const states = Object.keys(nrcConstants);
@@ -98,26 +99,12 @@ const NrcInput = () => {
               <MenuItem value="ပြု">ပြု</MenuItem>
             </Select>
           </FormControl>
-
-          {/* <TextField
-            id="standard-input"
-            name="nrc_number"
-            value="(နိုင်)"
-            onChange={handleOnChange}
-            size="small"
-            sx={{ borderRadius: "1rem" }}
-            InputLabelProps={{
-              style: {
-                color: "white",
-              },
-            }}
-          /> */}
           <TextField
             id="standard-input"
             placeholder="မှတ်ပုံတင်နံပါတ်"
             type="text"
-            name="nrc_number"
-            // value={data}
+            name="nrcNumber"
+            value={data.nrcNumber}
             onChange={handleOnChange}
             fullWidth
             size="small"

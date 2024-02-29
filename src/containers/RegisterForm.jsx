@@ -216,13 +216,6 @@ const RegisterForm = () => {
             handleOnChange={handleOnChange}
           />
           <Box>
-            {/* <input
-              type="file"
-              accept=".png,.jpeg"
-              onChange={handleOnChange}
-              style={{ display: "none" }}
-              id="file-input"
-            /> */}
             <TextField
               type="file"
               variant="outlined"
@@ -230,37 +223,16 @@ const RegisterForm = () => {
               size="small"
               label="ပုံတင်ရန်"
               sx={{ mt: "2rem" }}
+              name="file"
               InputLabelProps={{
                 style: {
                   color: "white",
                 },
               }}
-              // onClick={() =>
-              //         document.getElementById("file-input").click()
-              //       }
-              // InputProps={{
-              //   startAdornment: (
-              //     <Button
-              //       variant="contained"
-              //       onClick={() =>
-              //         document.getElementById("file-input").click()
-              //       }
-              //       sx={{
-              //         color: "#000",
-              //         bgcolor: "primary.light",
-              //         width: "200px",
-              //         borderRadius: "20px",
-              //         m: "1rem 0.5rem 1rem 0",
-              //       }}
-              //     >
-              //       Browse file
-              //     </Button>
-              //   ),
-              // }}
               // value={data.file ? data.file.name : "No file chosen"}
               value={data.file}
+              onChange={handleOnChange}
               focused
-              // disabled
             />
             <SubmitButton
               onClick={handleClickOpen}
@@ -287,9 +259,6 @@ const RegisterForm = () => {
           open={open}
           aria-labelledby="customized-dialog-title"
           aria-describedby="customized-dialog-description"
-          // sx={{
-          //   overflow: "visible",
-          // }}
         >
           <Box
             sx={{

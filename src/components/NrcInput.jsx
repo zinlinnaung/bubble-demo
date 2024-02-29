@@ -8,8 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import stateCities from "../utils/StateCities.json";
-import SingleInput from "./SingleInput";
 import nrcConstants from "../constants/nrcConstants.json";
 
 const NrcInput = () => {
@@ -102,7 +100,7 @@ const NrcInput = () => {
           <TextField
             id="standard-input"
             placeholder="မှတ်ပုံတင်နံပါတ်"
-            type="text"
+            type="number"
             name="nrcNumber"
             value={data.nrcNumber}
             onChange={handleOnChange}

@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import stateCities from "../utils/StateCities.json";
+import stateCities from "../constants/StateCities.json";
 
 const MultipleInput = ({ label, name1, name2, data, handleOnChange }) => {
   const states = Object.keys(stateCities);
